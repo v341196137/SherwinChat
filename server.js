@@ -19,11 +19,16 @@ app.get('/', function(req, res){
 }).listen(port);
 console.log("Node server started on port "+port);
 
+//this entire section somehow does not work (which is strange)
 io.on('connection', (socket) => {
     console.log("user connected at " + socket);
+    socket.on('chat message', (msg) => {
+        console.log(msg);
+        io.emit('chat message', msg);
+    });
     socket.on('disconnect', () =>{
         console.log("user disconnected");
-    })
+    });
 });
 
 // http.listen(port, () => {
