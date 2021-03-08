@@ -7,29 +7,17 @@
         <title>Chat!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="./css/styles.css">
-        <script type="text/javascript" src="./node_modules/socket.io/client-dist/socket.io.js"></script>
-        <script type="text/javascript" src="./node_modules/socket.io/client-dist/socket.io.js">
-            var socket = io();
-            
-            var form = document.getElementById('form');
-            var input = document.getElementById('message-box');
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (input.value) {
-                socket.emit('chat message', input.value);
-                input.value = '';
-                }
-            });
-        </script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
     </head>
     <body>
        <h1>SherwinChat</h1>
         <ul id="messages"></ul>
+        <!-- 
         <form id="form" action="" style="position: fixed; bottom: 0;">
             <input id="message-box" type="text"><button id="send" type="submit">Send</button>
         </form>
-        <script src="" async defer></script>
+        -->
+        <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
+        <script src="./js/client.js"></script>
     </body>
 </html>

@@ -6,16 +6,17 @@ const express = require("express");
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const path = require("path");
 const dt = require("./datetime.js");
 
 const port = 5000;
+console.log(__dirname);
+app.use(express.static(__dirname + '/css'));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname+"/index.html");
     // res.send("SherwinChat access time: " + dt.myDateTime());
-}).listen(port, () =>{
-    //listening
-});
+}).listen(port);
 console.log("Node server started on port "+port);
 
 io.on('connection', (socket) => {

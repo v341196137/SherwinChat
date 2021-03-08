@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/v341196137/SherwinChat/issues"
   },
-  "homepage": "https://github.com/v341196137/SherwinChat#readme"
+  "homepage": "https://github.com/v341196137/SherwinChat#readme",
+  "dependencies": {
+    "path": "^0.12.7",
+    "socket.io": "^3.1.2"
+  }
 }
