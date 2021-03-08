@@ -2,24 +2,27 @@
  * @fileoverview Server for SherwinChat
  */
 
-const express = require("express");
-const app = express();
-const http = require("http").Server(app);
-const io = require("socket.io")(http);
-const path = require("path");
-const dt = require("./datetime.js");
-
 const port = 5000;
-console.log(__dirname);
+var express = require("express");
+var app = express();
+var http = require("http");
+var server = http.createServer(app);
+var io = require("socket.io")(server);
+server.listen(port);
+var dt = require("./datetime.js");
+
+
+
 app.use(express.static(__dirname));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname+"/index.html");
-    // res.send("SherwinChat access time: " + dt.myDateTime());
-}).listen(port);
+     //res.send("SherwinChat access time: " + dt.myDateTime());
+});
 console.log("Node server started on port "+port);
 
 //this entire section somehow does not work (which is strange)
+// I am a socket! I will direct you to where you need to go
 io.on('connection', (socket) => {
     console.log("user connected at " + socket);
     socket.on('chat message', (msg) => {
