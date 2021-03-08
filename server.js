@@ -22,10 +22,14 @@ app.get('/', function(req, res){
 console.log("Node server started on port "+port);
 
 //this entire section somehow does not work (which is strange)
-// I am a socket! I will direct you to where you need to go
-io.on('connection', (socket) => {
+// I am a socket! I listen to all the requests :D
+io.on('connection', function(socket) {
     console.log("user connected at " + socket);
-    socket.on('chat message', (msg) => {
+    socket.on('hello', function(h){
+        console.log("ho");
+        console.log(h);
+    });
+    socket.on('chat message', function(msg) {
         console.log(msg);
         io.emit('chat message', msg);
     });
