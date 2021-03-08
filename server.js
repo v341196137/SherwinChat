@@ -11,7 +11,7 @@ const dt = require("./datetime.js");
 
 const port = 5000;
 console.log(__dirname);
-app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname ));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname+"/index.html");
