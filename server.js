@@ -3,13 +3,13 @@
  */
 
 const port = 5000;
-var express = require("express");
-var app = express();
-var http = require("http");
-var server = http.createServer(app);
-var io = require("socket.io")(server);
+const express = require("express");
+const app = express();
+const http = require("http");
+const server = http.createServer(app);
+const io = require("socket.io")(server);
 server.listen(port);
-var dt = require("./datetime.js");
+const dt = require("./datetime.js");
 
 
 
@@ -23,8 +23,9 @@ console.log("Node server started on port "+port);
 
 //this entire section somehow does not work (which is strange)
 // I am a socket! I listen to all the requests :D
-io.on('connection', function(socket) {
+io.sockets.on('connection', function(socket) {
     console.log("user connected at " + socket);
+    socket.emit("hi", "hi");
     socket.on('hello', function(h){
         console.log("ho");
         console.log(h);
