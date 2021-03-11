@@ -1,33 +1,44 @@
+/**
+ * @fileoverview client side JS
+ */
 
-// const socket = io("localhost:5000");
-const socket = io.connect();
+const /** socket */ socket = io.connect();
 
 console.log("is linked?");
 console.log("YES!");
 
-var form = document.getElementById('form');
-var input = document.getElementById('message-box');
+var /** form */ form = document.getElementById('form');
+var /** input */ input = document.getElementById('message-box');
 var messages = document.getElementById("messages");
 
-let red = 255;
-let green = 0;
-let blue = 0;
-let dr = 0;
-let dg = 1;
-let db = 0;
+let /** number */ red = 255;
+let /** number */ green = 0;
+let /** number */ blue = 0;
+let /** number */ dr = 0;
+let /** number */ dg = 1;
+let /** number */ db = 0;
 
+/**
+ * Starts the socket
+ */
 function start(){
     socket.emit("hello", "yes");
     console.log(socket);
     updateColours();
 }
+
+/**
+ * uhhh idk what this is here for XD
+ * @param {string} res 
+ * @param {string} msg 
+ */
 function emitter(res, msg){
     socket.emit(res, msg);
 }
 // Server Connection Stuff
 
 socket.on('chat message', function(msg) {
-    var item = document.createElement('li');
+    var item = document.createElement('div');
     item.textContent = msg;
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
@@ -39,16 +50,17 @@ socket.on("hi", (hi) => {
 // Event Listeners 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    // socket.emit("hello", "bye");
-    // console.log("this works right");
     emitter("hello", "bye");
-    if (input.value){// ===("hello")) {
+    if (input.value){
         console.log(input.value);
         socket.emit('chat message', input.value);
         input.value = '';
     }
 });
 
+/**
+ * Updates the colours for RGB cyclic
+ */
 function updateColours() {
     let root = document.documentElement;
     red += dr;

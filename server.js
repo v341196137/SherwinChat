@@ -2,16 +2,15 @@
  * @fileoverview Server for SherwinChat
  */
 
-const port = 5000;
-const express = require("express");
-const app = express();
-const http = require("http");
-const server = http.createServer(app);
-const io = require("socket.io")(server);
+const /** number */ port = 5000;
+const /** require */ express = require("express");
+const /** express */ app = express();
+const /** require */ http = require("http");
+const /** server */ server = http.createServer(app);
+const /** require */ io = require("socket.io")(server);
+const /** require */ dt = require("./datetime.js");
+
 server.listen(port);
-const dt = require("./datetime.js");
-
-
 
 app.use(express.static(__dirname));
 
@@ -38,20 +37,3 @@ io.sockets.on('connection', function(socket) {
         console.log("user disconnected");
     });
 });
-
-// http.listen(port, () => {
-//     console.log("listening");
-// });
-
-
-// server = http.createServer(function (req, res){
-//     res.writeHead(200, {"Content-Type": "text/plain"}); 
-//     let url = req.url;
-//     // res.write("SherwinChat access time: " + dt.myDateTime());
-//     res.end();
-// });
-
-// http.listen(port, function(){
-//     console.log('Node server created on port ' + port);
-// });
-
