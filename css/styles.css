@@ -1,6 +1,11 @@
 /**********GLOBAL***************/
+:root{
+    --red:255;
+    --green:0;
+    --blue:0;
+  }
 h1{
-    color: green;
+    color: rgb(var(--red), var(--green), var(--blue));
 }
 
 /**********CLASSES**************/
