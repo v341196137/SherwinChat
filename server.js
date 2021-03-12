@@ -24,11 +24,6 @@ console.log("Node server started on port "+port);
 // I am a socket! I listen to all the requests :D
 io.sockets.on('connection', function(socket) {
     console.log("user connected at " + socket);
-    socket.emit("hi", "hi");
-    socket.on('hello', function(h){
-        console.log("ho");
-        console.log(h);
-    });
     socket.on('chat message', function(msg) {
         console.log(msg);
         io.emit('chat message', msg);

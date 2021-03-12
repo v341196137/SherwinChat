@@ -3,10 +3,6 @@
  */
 
 const /** socket */ socket = io.connect();
-
-console.log("is linked?");
-console.log("YES!");
-
 var /** form */ form = document.getElementById('form');
 var /** input */ input = document.getElementById('message-box');
 var messages = document.getElementById("messages");
@@ -22,18 +18,8 @@ let /** number */ db = 0;
  * Starts the socket
  */
 function start(){
-    socket.emit("hello", "yes");
     console.log(socket);
     updateColours();
-}
-
-/**
- * uhhh idk what this is here for XD
- * @param {string} res 
- * @param {string} msg 
- */
-function emitter(res, msg){
-    socket.emit(res, msg);
 }
 // Server Connection Stuff
 
@@ -43,14 +29,9 @@ socket.on('chat message', function(msg) {
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
 });
-
-socket.on("hi", (hi) => {
-    console.log(hi);
-});
 // Event Listeners 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    emitter("hello", "bye");
     if (input.value){
         console.log(input.value);
         socket.emit('chat message', input.value);
