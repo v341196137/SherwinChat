@@ -2,7 +2,7 @@
  * @fileoverview Server for SherwinChat
  */
 
-const /** number */ port = 5000;
+const /** number */ port = 25565;
 const /** require */ express = require("express");
 const /** express */ app = express();
 const /** require */ http = require("http");

@@ -17,6 +17,7 @@ let /** number */ db = 0;
 /**
  * Functionality of client 
  */
+openForm();
 document.getElementById("user-login").addEventListener("click", userLogin);
 document.getElementById("guest-login").addEventListener("click", guestLogin);
 
@@ -28,11 +29,12 @@ function guestLogin(){
 }
 function openForm(){
     document.getElementById("user-popup").style.display="block";
-    document.getElementsByClassName("overlay").style.opacity="50%";
+    document.getElementById("user-popup").style.opacity="100%";
+    document.getElementById("home-overlay").style.opacity="50%";
 }
 function closeForm(){
     document.getElementById("user-popup").style.display="none";
-    document.getElementsByClassName("overlay").style.opacity="100%";
+    document.getElementById("home-overlay").style.opacity="100%";
 }
 /**
  * Starts the socket
