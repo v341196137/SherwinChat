@@ -15,6 +15,26 @@ let /** number */ dg = 1;
 let /** number */ db = 0;
 
 /**
+ * Functionality of client 
+ */
+document.getElementById("user-login").addEventListener("click", userLogin);
+document.getElementById("guest-login").addEventListener("click", guestLogin);
+
+function userLogin(){
+    closeForm();
+}
+function guestLogin(){
+    closeForm();
+}
+function openForm(){
+    document.getElementById("user-popup").style.display="block";
+    document.getElementsByClassName("overlay").style.opacity="50%";
+}
+function closeForm(){
+    document.getElementById("user-popup").style.display="none";
+    document.getElementsByClassName("overlay").style.opacity="100%";
+}
+/**
  * Starts the socket
  */
 function start(){
@@ -29,6 +49,12 @@ socket.on('chat message', function(msg) {
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
 });
+
+socket.on('login', function(msg){
+    
+
+});
+
 // Event Listeners 
 form.addEventListener('submit', function(e) {
     e.preventDefault();

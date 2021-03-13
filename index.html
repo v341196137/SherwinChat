@@ -9,8 +9,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
     </head>
-    <body onload="start()">
-       <h1>SherwinChat</h1>
+    <body onload="start()"><div class="overlay">
+    <!--Username Form (invisible)-->
+    
+        <div id="popup-form" id="user-popup">
+            <form class="container">
+                <h1>Login</h1>
+                <label for="email">Username</label>
+                <input type="text" placeholder="Enter Username" name="email">
+                <button type="submit" id="user-login">Enter as User</button>
+                <button type="submit" id="guest-login">Enter as Guest</button>
+            </form>
+        </div>
+    <!--Visible Structure-->
+        <h1>SherwinChat</h1>
         <div id="messages"></div>
         
         <form id="form">
@@ -19,5 +31,5 @@
         
         <script src="/socket.io/socket.io.js"></script>
         <script src="./js/index.js"></script>
-    </body>
+    </div></body>
 </html>

@@ -21,7 +21,7 @@ app.get('/', function(req, res){
 console.log("Node server started on port "+port);
 
 //this entire section somehow does not work (which is strange)
-// I am a socket! I listen to all the requests :D
+// I am a socket! I listen to all the requests and send responses :D
 io.sockets.on('connection', function(socket) {
     console.log("user connected at " + socket);
     socket.on('chat message', function(msg) {

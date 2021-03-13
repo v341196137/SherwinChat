@@ -9,11 +9,27 @@ h1{
 }
 
 /**********CLASSES**************/
-
+.overlay{
+    color: grey;
+    padding: none;
+    border: none;
+    opacity: 100%;
+    top: 0;
+    left: 0;
+}
 
 /**********ID*******************/
+#user-popup{
+
+}
+
+#user-login{
+    
+}
+#guest-login{
+
+}
 #form{
     position: fixed;
     bottom: 0;
-
-}
+} 
