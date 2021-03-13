@@ -45,7 +45,9 @@ function start(){
 
 socket.on('chat message', function(msg) {
     var item = document.createElement('div');
+    item.className = "message";
     item.textContent = msg;
+    
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
 });
